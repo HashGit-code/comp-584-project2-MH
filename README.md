@@ -4,7 +4,7 @@ This project is a responsive California road trip guide built with CSS Flexbox. 
 
 ## GitHub Pages
 
-[View the live website](https://hashgit-code.github.io/comp-584-project2-MH/)
+https://hashgit-code.github.io/comp-584-project2-MH/
 
 
 
