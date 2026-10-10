@@ -1,0 +1,350 @@
+/* =====================================================
+   Base setup
+   ===================================================== */
+
+:root {
+  --ink: #17201c;
+  --muted: #56625d;
+  --cream: #f7f1e7;
+  --paper: #fffdf8;
+  --forest: #173f35;
+  --sage: #dfe8dc;
+  --sun: #f3b33d;
+  --line: #d9d5ca;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.55;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--forest);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 4px;
+}
+
+
+/* =====================================================
+   Page header
+   ===================================================== */
+
+.site-header {
+  padding: 4.5rem 4vw 3.75rem;
+  background:
+    linear-gradient(115deg, rgba(12, 47, 39, 0.97), rgba(23, 63, 53, 0.88)),
+    url("images/big-sur.jpg") center 42% / cover;
+  color: #ffffff;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: #f6c96d;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 7vw, 5.8rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.intro {
+  max-width: 650px;
+  margin: 1.4rem auto 0;
+  color: #e7eee9;
+  font-size: 1.05rem;
+}
+
+
+/* =====================================================
+   Flexbox grid and shared card styles
+   Mobile-first: each item begins at full width.
+   ===================================================== */
+
+.wrapper {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.section-title {
+  flex: 0 0 100%;
+  margin: 0 0 0.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--line);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.65rem, 4vw, 2.4rem);
+  font-weight: 400;
+}
+
+[class*="col-"] {
+  flex: 0 0 100%;
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: 0 8px 24px rgba(32, 45, 38, 0.07);
+}
+
+.card img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1.15rem;
+}
+
+.card-number {
+  margin: 0 0 0.45rem;
+  color: #8c5e09;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  margin: 0 0 0.55rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+
+.card p:not(.card-number) {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.card a {
+  display: inline-block;
+  padding-bottom: 0.12rem;
+  border-bottom: 2px solid var(--sun);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: #9a6200;
+}
+
+
+/* =====================================================
+   Special layouts for rows 3, 4, and 5
+   ===================================================== */
+
+.feature-card,
+.panorama-card,
+.coast-feature {
+  background: var(--forest);
+  color: #ffffff;
+}
+
+.feature-card p:not(.card-number),
+.panorama-card p:not(.card-number),
+.coast-feature p:not(.card-number) {
+  color: #dce7e1;
+}
+
+.feature-card a,
+.panorama-card a,
+.coast-feature a {
+  color: #ffffff;
+}
+
+.feature-card .card-number,
+.panorama-card .card-number,
+.coast-feature .card-number {
+  color: #f6c96d;
+}
+
+/* =====================================================
+   Row 6: unique five-item Flexbox checklist
+   ===================================================== */
+
+.row-six {
+  justify-content: center;
+}
+
+.tip-card {
+  flex: 1 1 100%;
+  min-width: 0;
+  padding: 1.25rem;
+  border-top: 4px solid var(--sun);
+  background: var(--sage);
+}
+
+.tip-card span {
+  color: #7b5a16;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.tip-card h3 {
+  margin: 0.35rem 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+}
+
+.tip-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+
+/* =====================================================
+   Tablet layout: two columns and reordered fifth row
+   ===================================================== */
+
+@media only screen and (min-width: 480px) {
+  [class*="col-"] {
+    flex: 1 1 calc(50% - 0.625rem);
+  }
+
+  .row-three-small,
+  .feature-card,
+  .panorama-card,
+  .coast-feature {
+    flex-basis: 100%;
+  }
+
+  .coast-side {
+    flex-basis: calc(50% - 0.625rem);
+  }
+
+  /* Move the wide center feature above the two side cards on tablet. */
+  .row-five .coast-feature {
+    order: -1;
+  }
+
+  .tip-card {
+    flex-basis: calc(50% - 0.625rem);
+  }
+}
+
+
+/* =====================================================
+   Desktop layout: four-column grid
+   The 1.25rem gaps total 3.75rem across four columns.
+   ===================================================== */
+
+@media only screen and (min-width: 768px) {
+  .col-1 {
+    flex: 0 0 calc((100% - 3.75rem) / 4);
+  }
+
+  .col-2 {
+    flex: 0 0 calc((100% - 1.25rem) / 2);
+  }
+
+  .col-3 {
+    flex: 0 0 calc((((100% - 3.75rem) / 4) * 3) + 2.5rem);
+  }
+
+  .col-4 {
+    flex: 0 0 100%;
+  }
+
+  .card-horizontal,
+  .feature-card,
+  .panorama-card,
+  .coast-feature {
+    display: flex;
+  }
+
+  .card-horizontal img {
+    width: 42%;
+    aspect-ratio: auto;
+  }
+
+  .feature-card img,
+  .coast-feature img {
+    width: 52%;
+    aspect-ratio: auto;
+  }
+
+  .panorama-card img {
+    width: 58%;
+    max-height: 410px;
+    aspect-ratio: auto;
+  }
+
+  .card-horizontal .card-content,
+  .feature-card .card-content,
+  .panorama-card .card-content,
+  .coast-feature .card-content {
+    align-self: center;
+    padding: 1.6rem;
+  }
+
+  .row-five .coast-feature,
+  .row-five .coast-side {
+    order: 0;
+  }
+
+  .tip-card {
+    flex: 1 1 calc(20% - 1rem);
+  }
+}
+
+
+/* =====================================================
+   Footer
+   ===================================================== */
+
+.site-footer {
+  padding: 1.5rem 4vw;
+  background: var(--ink);
+  color: #dce7e1;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
